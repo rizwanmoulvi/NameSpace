@@ -266,7 +266,7 @@ const Home = () => {
         <div className="flex flex-col items-center mx-auto max-w-lg">
           <p>Please connect to Edu-Chain</p>
           <button
-            className="h-12 bg-orange-500 text-white font-bold rounded-lg px-8 py-2 animate-gradient-animation"
+            className="h-12 bg-red-500 text-white font-bold rounded-lg px-8 py-2 animate-gradient-animation"
             onClick={switchNetwork}
           >
             Click here to switch
