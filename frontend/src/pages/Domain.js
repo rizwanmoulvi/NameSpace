@@ -228,12 +228,12 @@ const Domain = () => {
         </header>
       </div>
       <div className="flex">
-        <div className="fixed w-1/2 p-10 mt-20 justify-center">
+        <div className="fixed w-1/2 p-10 mt-12 justify-center">
           <h1 className="text-4xl text-teal-500 font-bold">Domain Details</h1>
-          <div className="mt-6 flex flex-col items-center">
+          <div className="mt-4 flex flex-col items-center">
             <p className="text-2xl font-bold text-red-500">TLD: {tld}</p>
             <div className="flex items-center">
-              <p className="text-2xl">{contractAddress}</p>
+              <p className="text-xl">{contractAddress}</p>
               <FontAwesomeIcon
                 icon={faCopy}
                 className="cursor-pointer text-white hover:text-gray-300 mt-1 ml-3"
@@ -243,8 +243,8 @@ const Domain = () => {
           </div>
 
           {/* Domain Minting Form */}
-          <div className="mt-16 flex flex-col items-center">
-            <h2 className="text-6xl text-teal-500 font-bold mb-5">Mint a New Domain Name</h2>
+          <div className="mt-10 flex flex-col items-center">
+            <h2 className="text-5xl text-teal-500 font-bold mb-5">Mint a New Domain Name</h2>
             <div className="flex border justify-center border-teal-500 rounded-lg bg-black text-white text-lg py-2 px-4 mb-4 w-full max-w-md text-center placeholder-gray-500 focus:outline-none">
               <input
                 type="text"
@@ -263,12 +263,12 @@ const Domain = () => {
             >
               {minting ? "Minting..." : `Mint \n ${name}.${tld}`}
             </button>
-            <p className="mt-2">The domain name will be mapped to your wallet address with which you are minting it</p>
-            <p className="mt-10 text-6xl font-bold text-teal-500 mb-5">Why Web3 Domains</p>
-            <div className="mt-5 text-xl font-bold space-y-10">
-              <p className="bg-gradient-to-r from-red-600 to-pink-600 rounded py-3 px-32">To recieve NFT docs and credentials</p>
-              <p className="bg-gradient-to-r from-red-600 to-pink-600 rounded py-3 px-32">To access NFT gated platforms</p>
-              <p className="bg-gradient-to-r from-red-600 to-pink-600 rounded py-3 px-32">For communications and authentication</p>
+            <p className="mt-2">Domain name will be mapped to your wallet address with which you are minting it</p>
+            <p className="mt-10 text-5xl font-bold text-teal-500 mb-2">Why Web3 Domains</p>
+            <div className="mt-5 text-lg font-bold space-y-5">
+              <p className="bg-gradient-to-r from-red-600 to-pink-600 rounded py-3 px-24">To recieve NFT docs and credentials</p>
+              <p className="bg-gradient-to-r from-red-600 to-pink-600 rounded py-3 px-24">To access NFT gated platforms</p>
+              <p className="bg-gradient-to-r from-red-600 to-pink-600 rounded py-3 px-24">For communications and authentication</p>
             </div>
           </div>
         </div>
@@ -284,7 +284,7 @@ const Domain = () => {
                 {domains.map((domain, index) => (
                   <li
                     key={index}
-                    className="w-2/5 py-2 bg-teal-500 shadow-md rounded-lg p-4 mb-4 py-4 cursor-pointer transform transition-transform duration-300 hover:scale-105"
+                    className="w-2/5 py-4 bg-teal-500 shadow-md rounded-lg p-4 mb-4 cursor-pointer transform transition-transform duration-300 hover:scale-105"
                     onClick={() => window.open(`https://opencampus-codex.blockscout.com/token/${contractAddress}/instance/${index}`, '_blank')}
                   >
                     {domain.name}.{tld}

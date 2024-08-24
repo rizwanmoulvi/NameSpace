@@ -200,9 +200,9 @@ const Home = () => {
                 key={index}
                 onClick={() => handleCardClick(domain.tld, domain.address)}
               >
-                <p className="font-bold text-2xl">TLD: {domain.tld}</p>
+                <p className="font-bold text-xl">TLD: {domain.tld}</p>
                 <div className="flex items-center">
-                  <p className="mr-2">{domain.address}</p>
+                  <p className="mr-2 text-xs">{domain.address}</p>
                   <FontAwesomeIcon
                     icon={faCopy}
                     className="cursor-pointer text-white hover:text-gray-300"
@@ -350,13 +350,13 @@ const Home = () => {
         </div>
         <div>
           <div className="flex">
-            <div className="h-screen mt-32 fixed w-1/2 bg-[#0d1116]"> 
-              <p className="bg-gradient-to-r from-sky-500 to-teal-500 bg-clip-text text-transparent font-bold text-9xl">NameSpace</p>
-              <p className="text-4xl font-bold mt-5">Domain Name Service Launchpad</p>
-              <p className="text-2xl  font-bold mt-5 pl-10 pr-10">Create Web3 domains like .eth .nft .crypto for your entity and let your members mint there unique domain names</p>
+            <div className="h-screen mt-24 fixed w-1/2 bg-[#0d1116]"> 
+              <p className="bg-gradient-to-r from-sky-500 to-teal-500 bg-clip-text text-transparent font-bold text-7xl">NameSpace</p>
+              <p className="text-2xl font-bold mt-5">Domain Name Service Launchpad</p>
+              <p className="text-xl  font-bold mt-5 pl-10 pr-10">Create Web3 domains like .eth .nft .crypto for your entity and let your members mint there unique domain names</p>
               {renderInputForm()}
               <div className="">
-              <p className="mt-5 text-2xl font-bold">Are you looking to mint a domain name like 'yourname.xyz'?</p>
+              <p className="mt-5 text-xl font-bold">Are you looking to mint a domain name like 'yourname.xyz'?</p>
               <p className="mt-2 text-2xl font-bold text-red-500">Click on your prefered TLD card to mint</p>
               <p className="mt-5 text-2xl font-bold">Search A TLD</p>
               <div className="flex justify-center w-full mt-5">
@@ -373,7 +373,7 @@ const Home = () => {
               </div>
             </div>
             <div className="ml-[50%] w-1/2">
-              <p className="mt-40 mb-16 text-5xl bg-gradient-to-r from-sky-300 to-teal-500 bg-clip-text text-transparent font-bold">Mint Domain From Existing TLDs</p>
+              <p className="mt-28 mb-8 text-4xl bg-gradient-to-r from-sky-300 to-teal-500 bg-clip-text text-transparent font-bold">Mint Domain From Existing TLDs</p>
               {renderDomains()}
             </div>
           </div>
