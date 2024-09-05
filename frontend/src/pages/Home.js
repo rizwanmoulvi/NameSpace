@@ -91,12 +91,12 @@ const Home = () => {
           <div className='flex flex-col items-center mx-auto max-w-lg'>
             <button
               onClick={connectWallet}
-              className='h-12 bg-emerald text-textGreen font-bold rounded-lg px-8 py-2 animate-gradient-animation'
+              className='h-12 bg-beige text-textGreen font-bold rounded-lg px-8 py-2 animate-gradient-animation'
             >
               {currentAccount ? 'Connected' : 'Connect Wallet'}
             </button>
           </div>
-          <div className='bg-emerald text-textGreen font-bold flex p-3 rounded-lg'>
+          <div className='bg-beige text-textGreen font-bold flex p-3 rounded-lg'>
             <img
               alt='Network logo'
               className='w-5 h-5 mr-2'
@@ -117,11 +117,11 @@ const Home = () => {
         <p className='text-9xl font-bold text-textGray'>
           Name <span className='text-beige'>Space</span>
         </p>
-        <p className='text-3xl text-peach font-bold'>
-          Domain Name Service Launchpad
+        <p className='text-3xl mt-5 text-peach font-bold'>
+          Web3 Domain Name Service Launchpad For Organizations
         </p>
 
-        <span className='flex flex-row gap-[2rem]'>
+        <span className='flex mt-10 flex-row gap-[2rem]'>
           <Link to={'/organization'}>
             <button
               className='px-[2rem] py-[1rem] text-[1.5rem] font-medium text-peach bg-lightGray rounded-2xl'
@@ -131,7 +131,7 @@ const Home = () => {
                   'inset -24px -24px 49px #0b0b0e, inset 24px 24px 49px #2d2d3a',
               }}
             >
-              Organization ?
+              For Organizations
             </button>
           </Link>
           <Link to={'/member'}>
@@ -143,7 +143,7 @@ const Home = () => {
                   'inset -24px -24px 49px #0b0b0e, inset 24px 24px 49px #2d2d3a',
               }}
             >
-              User ?
+              For Organization Members
             </button>
           </Link>
         </span>

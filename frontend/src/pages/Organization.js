@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 
-const CONTRACT_ADDRESS = '0x376343F54fC19fCC383Af473e9Cd2d39Fd5cd0C7';
+const CONTRACT_ADDRESS = '0xd773bE644ec4C5a9e0E2A85530902eB39AC28E79';
 const Organization = () => {
   const [domains, setDomains] = useState([]);
   const [tld, setTld] = useState('');
@@ -100,7 +100,7 @@ const Organization = () => {
 
         if (receipt.status === 1) {
           console.log(
-            'Domain created! https://opencampus-codex.blockscout.com/tx/' +
+            'Domain created! https://sepolia.lineascan.build/tx/' + //to change
               tx.hash
           );
           setTimeout(() => {
@@ -146,7 +146,7 @@ const Organization = () => {
         let tx = await contract.withdraw();
         await tx.wait();
         console.log(
-          'Funds withdrawn! https://opencampus-codex.blockscout.com/tx/' +
+          'Funds withdrawn! https://sepolia.lineascan.build/tx/' + //to change
             tx.hash
         );
       }
@@ -239,7 +239,7 @@ const Organization = () => {
       try {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0xa045c' }],
+          params: [{ chainId: '0xe705' }],
         });
       } catch (error) {
         if (error.code === 4902) {
@@ -248,16 +248,16 @@ const Organization = () => {
               method: 'wallet_addEthereumChain',
               params: [
                 {
-                  chainId: '0xa045c',
-                  chainName: 'Edu-Chain',
-                  rpcUrls: ['https://rpc.open-campus-codex.gelato.digital'],
+                  chainId: '0xe705',
+                  chainName: 'Linea Sepolia Testnet',
+                  rpcUrls: ['https://linea-sepolia.infura.io/v3/'],
                   nativeCurrency: {
-                    name: 'EDU',
-                    symbol: 'EDU',
+                    name: 'ETH',
+                    symbol: 'ETH',
                     decimals: 18,
                   },
                   blockExplorerUrls: [
-                    'https://opencampus-codex.blockscout.com/',
+                    'https://sepolia.lineascan.build/',
                   ],
                 },
               ],
@@ -276,11 +276,11 @@ const Organization = () => {
   };
 
   const renderInputForm = () => {
-    if (network !== 'Edu-Chain') {
+    if (network !== 'Linea Sepolia Testnet') {
       return (
         <div className='flex flex-col items-center mx-auto max-w-lg gap-[1rem]'>
           <pre className='text-[1.25rem] text-peach'>
-            {'!  Please connect to Edu-Chain  !'}
+            {'!  Please connect to Linea Sepolia Testnet  !'}
           </pre>
           <button
             className='px-[1.5rem] py-[0.75rem] text-textGreen bg-textGray font-bold rounded-lg'
@@ -316,7 +316,7 @@ const Organization = () => {
         >
           {loading ? 'Creating...' : 'Create A Domain'}
         </button>
-        <p className='text-peach'>( Fee 0.01 EDU )</p>
+        <p className='text-peach'>( Fee 0.01 ETH )</p>
       </div>
     );
   };

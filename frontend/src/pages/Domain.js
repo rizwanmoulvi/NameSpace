@@ -149,7 +149,7 @@ const Domain = () => {
       try {
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0xa045c' }],
+          params: [{ chainId: '0xe705' }],
         });
       } catch (error) {
         if (error.code === 4902) {
@@ -158,16 +158,16 @@ const Domain = () => {
               method: 'wallet_addEthereumChain',
               params: [
                 {
-                  chainId: '0xa045c',
-                  chainName: 'Edu-Chain',
-                  rpcUrls: ['https://rpc.open-campus-codex.gelato.digital'],
+                  chainId: '0xe705',
+                  chainName: 'Linea Sepolia Testnet',
+                  rpcUrls: ['https://linea-sepolia.infura.io/v3/'],
                   nativeCurrency: {
-                    name: 'EDU',
-                    symbol: 'EDU',
+                    name: 'ETH',
+                    symbol: 'ETH',
                     decimals: 18,
                   },
                   blockExplorerUrls: [
-                    'https://opencampus-codex.blockscout.com/',
+                    'https://sepolia.lineascan.build/',
                   ],
                 },
               ],
@@ -321,7 +321,7 @@ const Domain = () => {
                   }}
                   onClick={() =>
                     window.open(
-                      `https://opencampus-codex.blockscout.com/token/${contractAddress}/instance/${index}`,
+                      `https://sepolia.lineascan.build/nft/${contractAddress}/${index}`,
                       '_blank'
                     )
                   }

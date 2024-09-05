@@ -11,6 +11,7 @@ const networks = {
   "0xa86a": "AVAX Mainnet",
   "0xaa36a7": "Sepolia",
   "0xa045c": "Edu-Chain",
+  "0xe705": "Linea Sepolia Testnet",
 }
 
 export { networks };
