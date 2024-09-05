@@ -190,12 +190,12 @@ const Members = () => {
           <div className='flex flex-col items-center mx-auto max-w-lg'>
             <button
               onClick={connectWallet}
-              className='h-12 bg-emerald text-textGreen font-bold rounded-lg px-8 py-2 animate-gradient-animation'
+              className='h-12 bg-beige text-textGreen font-bold rounded-lg px-8 py-2 animate-gradient-animation'
             >
               {currentAccount ? 'Connected' : 'Connect Wallet'}
             </button>
           </div>
-          <div className='bg-emerald text-textGreen flex p-3 rounded-lg'>
+          <div className='bg-beige text-textGreen flex p-3 rounded-lg'>
             <img
               alt='Network logo'
               className='w-5 h-5 mr-2'
