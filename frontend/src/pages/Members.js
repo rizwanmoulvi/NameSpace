@@ -216,11 +216,11 @@ const Members = () => {
       <div className='px-[5rem] py-[5rem] flex flex-col items-center justify-center w-full gap-[2.5rem]'>
         <div className='flex flex-row justify-between w-full'>
           <p className='text-5xl text-textGray font-bold'>
-            Mint Domain From Existing TLDs
+            Mint Domain Under Your Organization TLD
           </p>
           <input
             type='text'
-            placeholder='Search your TLD'
+            placeholder='Search your organization'
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className='p-[1rem] max-w-lg text-textGray bg-lightGray rounded-lg outline-none'

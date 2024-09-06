@@ -232,7 +232,7 @@ const Domain = () => {
 
       <div className='grid grid-cols-2 w-full overflow-hidden'>
         <div className='h-[80vh] flex flex-col items-center justify-center overflow-hidden gap-[2rem]'>
-          <h1 className='text-7xl text-textGray font-bold'>Domain Details</h1>
+          <h1 className='text-7xl text-textGray font-bold'>Organization Domain Details</h1>
           <span
             className='px-[2rem] py-[0.5rem] flex flex-row items-center justify-center max-w-fit rounded-lg gap-[1.5rem]'
             style={{

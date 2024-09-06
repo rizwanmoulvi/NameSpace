@@ -406,10 +406,10 @@ const Organization = () => {
             }}
           >
             Create Web3 domains like
-            <span className='text-olive px-[0.5rem]'>
-              {`.eth .nft .crypto .zomato .jnu`}
+            <span className='text-beige px-[0.5rem]'>
+              {`.mit .iit .degensclub .zomato .zo`}
             </span>
-            for your <span className='text-beige'>Organization</span>
+            for your <span className='text-whitee'>Organization</span>
           </li>
           <li
             className='px-[1.5rem] py-[1.5rem] text-2xl font-bold rounded-3xl'
@@ -419,7 +419,7 @@ const Organization = () => {
                 'inset -24px -24px 49px #0b0b0e, inset 24px 24px 49px #2d2d3a',
             }}
           >
-            Let your members mint there unique domain names
+            Let your organization members create a name with your Web3 Domain
           </li>
         </ul>
         <ScrollLink
@@ -438,7 +438,7 @@ const Organization = () => {
       >
         <div className='flex flex-row justify-between w-full'>
           <p className='text-5xl text-textGray font-bold'>
-            Mint Domain From Existing TLDs
+            Domains Created By Other Organizations
           </p>
           <input
             type='text'
