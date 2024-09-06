@@ -113,7 +113,13 @@ const Organization = () => {
       }
     } catch (error) {
       console.log(error);
-      alert('Creation failed (Duplicate TLD). Please try again.');
+      if (error.code === 'INSUFFICIENT_FUNDS') {
+        alert(
+          'Transaction failed due to insufficient funds for gas. Please ensure you have enough ETH to cover the gas fees.'
+        );
+      } else {
+        alert('Creation failed (Duplicate TLD). Please try again.');
+      }
     } finally {
       setLoading(false);
     }
