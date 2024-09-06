@@ -113,7 +113,13 @@ const Organization = () => {
       }
     } catch (error) {
       console.log(error);
-      alert('Creation failed (Duplicate TLD). Please try again.');
+      if (error.code === 'INSUFFICIENT_FUNDS') {
+        alert(
+          'Transaction failed due to insufficient funds for gas. Please ensure you have enough ETH to cover the gas fees.'
+        );
+      } else {
+        alert('Creation failed (Duplicate TLD). Please try again.');
+      }
     } finally {
       setLoading(false);
     }
@@ -256,9 +262,7 @@ const Organization = () => {
                     symbol: 'ETH',
                     decimals: 18,
                   },
-                  blockExplorerUrls: [
-                    'https://sepolia.lineascan.build/',
-                  ],
+                  blockExplorerUrls: ['https://sepolia.lineascan.build/'],
                 },
               ],
             });
@@ -294,28 +298,28 @@ const Organization = () => {
 
     return (
       <div className='py-[1.5rem] flex flex-col items-center justify-center w-full gap-[2rem]'>
-        <div className='flex flex-row items-center justify-center w-full max-w-lg gap-[1rem]'>
-          <input
-            type='text'
-            value={tld}
-            placeholder='eg:  zomato'
-            onChange={(e) => setTld(e.target.value)}
-            className='rounded-lg bg-lightGray text-white text-lg py-2 px-4 w-full placeholder-textGray outline-none'
-          />
+        <input
+          type='text'
+          value={tld}
+          placeholder='eg:  zomato'
+          onChange={(e) => setTld(e.target.value)}
+          className='px-[2rem] py-[2rem] w-[30rem] rounded-lg bg-lightGray text-white text-lg placeholder-textGray outline-double'
+        />
+        <div className='flex flex-row items-center justify-center w-full gap-[1rem]'>
           <input
             disabled
-            className='p-[0.5rem] text-lg text-black flex items-center justify-center rounded-lg'
+            className='px-[1rem] py-[0.5rem] text-lg text-black flex items-center justify-center rounded-lg'
             placeholder='Preview'
             value={tld && `.${tld}`}
           />
+          <button
+            className='px-[2rem] py-[0.75rem] bg-beige text-textGreen font-bold animate-gradient-animation rounded-lg'
+            disabled={loading}
+            onClick={createNewDomain}
+          >
+            {loading ? 'Creating...' : 'Create A Domain'}
+          </button>
         </div>
-        <button
-          className='px-[2rem] py-[0.75rem] bg-emerald text-textGreen font-bold animate-gradient-animation rounded-lg'
-          disabled={loading}
-          onClick={createNewDomain}
-        >
-          {loading ? 'Creating...' : 'Create A Domain'}
-        </button>
         <p className='text-peach'>( Fee 0.01 ETH )</p>
       </div>
     );
@@ -351,12 +355,12 @@ const Organization = () => {
           <div className='flex flex-col items-center mx-auto max-w-lg'>
             <button
               onClick={connectWallet}
-              className='h-12 bg-emerald text-textGreen font-bold rounded-lg px-8 py-2 animate-gradient-animation'
+              className='h-12 bg-beige text-textGreen font-bold rounded-lg px-8 py-2 animate-gradient-animation'
             >
               {currentAccount ? 'Connected' : 'Connect Wallet'}
             </button>
           </div>
-          <div className='bg-emerald text-textGreen font-bold flex p-3 rounded-lg'>
+          <div className='bg-beige text-textGreen font-bold flex p-3 rounded-lg'>
             <img
               alt='Network logo'
               className='w-5 h-5 mr-2'
@@ -374,37 +378,50 @@ const Organization = () => {
         </div>
       </header>
 
-      <div className='py-[12.5rem] flex flex-col items-center justify-center w-full gap-[2rem]'>
-        <p className='text-9xl font-bold text-textGray'>
+      <div className='py-[12.5rem] flex flex-col items-center justify-center w-full gap-[3.125rem]'>
+        {/* <p className='text-9xl font-bold text-textGray'>
           Name <span className='text-beige'>Space</span>
         </p>
         <p className='text-3xl text-peach font-bold'>
           Domain Name Service Launchpad
+        </p> */}
+
+        <p className='text-5xl font-bold text-textGray'>
+          Create a Domain for your{' '}
+          <span className='text-beige'>Organization</span>
         </p>
-        <ol
+
+        {renderInputForm()}
+
+        <ul
           type='1'
-          className='px-[5rem] py-[1.5rem] flex flex-col rounded-lg gap-[1rem] list-decimal text-peach'
-          style={{
-            background: '#17171c',
-            boxShadow:
-              'inset -24px -24px 49px #0b0b0e, inset 24px 24px 49px #2d2d3a',
-          }}
+          className='grid grid-cols-2 gap-[2rem] text-peach max-w-[60rem]'
         >
-          <li className='text-2xl font-bold text-left'>
+          <li
+            className='px-[1.5rem] py-[1.5rem] text-2xl font-bold rounded-3xl tracking-wide'
+            style={{
+              background: '#17171c',
+              boxShadow:
+                'inset -24px -24px 49px #0b0b0e, inset 24px 24px 49px #2d2d3a',
+            }}
+          >
             Create Web3 domains like
             <span className='text-olive px-[0.5rem]'>
               {`.eth .nft .crypto .zomato .jnu`}
             </span>
-            for your
-            <span className='text-white bg-slate-500 p-[0.5rem] mx-[1rem] rounded-lg'>
-              Organization
-            </span>
+            for your <span className='text-beige'>Organization</span>
           </li>
-          <li className='text-2xl font-bold text-left'>
+          <li
+            className='px-[1.5rem] py-[1.5rem] text-2xl font-bold rounded-3xl'
+            style={{
+              background: '#17171c',
+              boxShadow:
+                'inset -24px -24px 49px #0b0b0e, inset 24px 24px 49px #2d2d3a',
+            }}
+          >
             Let your members mint there unique domain names
           </li>
-        </ol>
-        {renderInputForm()}
+        </ul>
         <ScrollLink
           to='secondDiv'
           smooth={true}
