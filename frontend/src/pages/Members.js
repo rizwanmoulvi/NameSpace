@@ -11,7 +11,7 @@ import { faCopy, faSquare } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 
-const CONTRACT_ADDRESS = '0xd773bE644ec4C5a9e0E2A85530902eB39AC28E79';
+const CONTRACT_ADDRESS = '0x376343F54fC19fCC383Af473e9Cd2d39Fd5cd0C7';
 
 const Members = () => {
   const [domains, setDomains] = useState([]);
