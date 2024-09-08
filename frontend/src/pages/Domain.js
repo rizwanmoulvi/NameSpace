@@ -148,25 +148,27 @@ const Domain = () => {
     if (window.ethereum) {
       try {
         await window.ethereum.request({
-          method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0xe705' }],
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: "0xa045c" }],
         });
       } catch (error) {
         if (error.code === 4902) {
           try {
             await window.ethereum.request({
-              method: 'wallet_addEthereumChain',
+              method: "wallet_addEthereumChain",
               params: [
                 {
-                  chainId: '0xe705',
-                  chainName: 'Linea Sepolia Testnet',
-                  rpcUrls: ['https://linea-sepolia.infura.io/v3/'],
+                  chainId: "0xa045c",
+                  chainName: "Edu-Chain",
+                  rpcUrls: ["https://rpc.open-campus-codex.gelato.digital"],
                   nativeCurrency: {
-                    name: 'ETH',
-                    symbol: 'ETH',
+                    name: "EDU",
+                    symbol: "EDU",
                     decimals: 18,
                   },
-                  blockExplorerUrls: ['https://sepolia.lineascan.build/'],
+                  blockExplorerUrls: [
+                    "https://opencampus-codex.blockscout.com/",
+                  ],
                 },
               ],
             });
@@ -178,7 +180,7 @@ const Domain = () => {
       }
     } else {
       alert(
-        'MetaMask is not installed. Please install it to use this app: https://metamask.io/download.html'
+        "MetaMask is not installed. Please install it to use this app: https://metamask.io/download.html"
       );
     }
   };
@@ -317,12 +319,7 @@ const Domain = () => {
                     boxShadow:
                       'inset -24px -24px 49px #0b0b0e, inset 24px 24px 49px #2d2d3a',
                   }}
-                  onClick={() =>
-                    window.open(
-                      `https://sepolia.lineascan.build/nft/${contractAddress}/${index}`,
-                      '_blank'
-                    )
-                  }
+                  onClick={() => window.open(`https://opencampus-codex.blockscout.com/token/${contractAddress}/instance/${index}`, '_blank')}
                 >
                   {domain.name}.{tld}
                 </li>

@@ -166,7 +166,7 @@ const Members = () => {
   }, []);
 
   useEffect(() => {
-    if (network === 'Linea Sepolia Testnet') {
+    if (network === 'Edu-Chain') {
       fetchDomains();
     }
   }, [currentAccount, network]);

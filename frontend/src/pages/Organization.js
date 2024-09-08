@@ -80,7 +80,7 @@ const Organization = () => {
       return;
     }
     setLoading(true);
-    console.log('Creating domain with TLD', tld);
+    console.log("Creating domain with TLD", tld);
     try {
       const { ethereum } = window;
       if (ethereum) {
@@ -92,34 +92,28 @@ const Organization = () => {
           signer
         );
 
-        console.log('Going to pop wallet now to pay gas...');
+        console.log("Going to pop wallet now to pay gas...");
         let tx = await contract.createDomain(tld, {
-          value: ethers.utils.parseEther('0.01'),
+          value: ethers.utils.parseEther("0.01"),
         });
         const receipt = await tx.wait();
 
         if (receipt.status === 1) {
           console.log(
-            'Domain created! https://sepolia.lineascan.build/tx/' + //to change
+            "Domain created! https://opencampus-codex.blockscout.com/tx/" +
               tx.hash
           );
           setTimeout(() => {
             fetchDomains();
           }, 2000);
-          setTld('');
+          setTld("");
         } else {
-          alert('Transaction failed! Please try again');
+          alert("Transaction failed! Please try again");
         }
       }
     } catch (error) {
       console.log(error);
-      if (error.code === 'INSUFFICIENT_FUNDS') {
-        alert(
-          'Transaction failed due to insufficient funds for gas. Please ensure you have enough ETH to cover the gas fees.'
-        );
-      } else {
-        alert('Creation failed (Duplicate TLD). Please try again.');
-      }
+      alert("Creation failed (Duplicate TLD). Please try again.");
     } finally {
       setLoading(false);
     }
@@ -148,11 +142,11 @@ const Organization = () => {
           signer
         );
 
-        console.log('Withdrawing funds...');
+        console.log("Withdrawing funds...");
         let tx = await contract.withdraw();
         await tx.wait();
         console.log(
-          'Funds withdrawn! https://sepolia.lineascan.build/tx/' + //to change
+          "Funds withdrawn! https://opencampus-codex.blockscout.com/tx/" +
             tx.hash
         );
       }
@@ -244,25 +238,27 @@ const Organization = () => {
     if (window.ethereum) {
       try {
         await window.ethereum.request({
-          method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0xe705' }],
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: "0xa045c" }],
         });
       } catch (error) {
         if (error.code === 4902) {
           try {
             await window.ethereum.request({
-              method: 'wallet_addEthereumChain',
+              method: "wallet_addEthereumChain",
               params: [
                 {
-                  chainId: '0xe705',
-                  chainName: 'Linea Sepolia Testnet',
-                  rpcUrls: ['https://linea-sepolia.infura.io/v3/'],
+                  chainId: "0xa045c",
+                  chainName: "Edu-Chain",
+                  rpcUrls: ["https://rpc.open-campus-codex.gelato.digital"],
                   nativeCurrency: {
-                    name: 'ETH',
-                    symbol: 'ETH',
+                    name: "EDU",
+                    symbol: "EDU",
                     decimals: 18,
                   },
-                  blockExplorerUrls: ['https://sepolia.lineascan.build/'],
+                  blockExplorerUrls: [
+                    "https://opencampus-codex.blockscout.com/",
+                  ],
                 },
               ],
             });
@@ -274,20 +270,18 @@ const Organization = () => {
       }
     } else {
       alert(
-        'MetaMask is not installed. Please install it to use this app: https://metamask.io/download.html'
+        "MetaMask is not installed. Please install it to use this app: https://metamask.io/download.html"
       );
     }
   };
 
   const renderInputForm = () => {
-    if (network !== 'Linea Sepolia Testnet') {
+    if (network !== "Edu-Chain") {
       return (
-        <div className='flex flex-col items-center mx-auto max-w-lg gap-[1rem]'>
-          <pre className='text-[1.25rem] text-peach'>
-            {'!  Please connect to Linea Sepolia Testnet  !'}
-          </pre>
+        <div className="flex flex-col items-center mx-auto max-w-lg">
+          <p>Please connect to Edu-Chain</p>
           <button
-            className='px-[1.5rem] py-[0.75rem] text-textGreen bg-textGray font-bold rounded-lg'
+            className="h-12 bg-red-500 text-white font-bold rounded-lg px-8 py-2 animate-gradient-animation"
             onClick={switchNetwork}
           >
             Click here to switch
